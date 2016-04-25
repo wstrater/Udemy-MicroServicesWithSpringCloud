@@ -1,0 +1,59 @@
+---
+# Set the instanceId used to register to a unique number so multiple can run on the same host.
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+
+# Set config based on profile
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8010
+
+# Use one of the clustered servers for Spring Config
+---
+spring:
+  profiles: clustered
+  cloud:
+    config:
+      uri: http://localhost:8011
+
+
+# Set name based on profile
+---
+spring:
+  profiles: sentence
+  application:
+    name: lab-4-sentence
+    
+---
+spring:
+  profiles: adjective
+  application:
+    name: lab-4-adjective
+
+---
+spring:
+  profiles: article
+  application:
+    name: lab-4-article
+
+---
+spring:
+  profiles: noun
+  application:
+    name: lab-4-noun
+
+---
+spring:
+  profiles: subject
+  application:
+    name: lab-4-subject
+  
+---
+spring:
+  profiles: verb
+  application:
+    name: lab-4-verb
+

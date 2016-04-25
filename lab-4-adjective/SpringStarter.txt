@@ -1,0 +1,5 @@
+# Eureka Client
+http://start.spring.io/starter.zip?name=lab-4-adjective&groupId=com.wstrater&artifactId=lab-4-adjective&version=0.0.1-SNAPSHOT&description=Udemy+-+Microservices+with+Spring+Cloud+-+Lab+4+-+Adjective&packageName=com.wstrater.lab4.adjective&type=gradle-project&packaging=jar&javaVersion=1.8&language=java&bootVersion=1.3.3.RELEASE&dependencies=cloud-eureka&dependencies=actuator&dependencies=web
+
+# Eureka and Config Client
+http://start.spring.io/starter.zip?name=lab-4-adjective&groupId=com.wstrater&artifactId=lab-4-adjective&version=0.0.1-SNAPSHOT&description=Udemy+-+Microservices+with+Spring+Cloud+-+Lab+4+-+Adjective&packageName=com.wstrater.lab4.adjective&type=gradle-project&packaging=jar&javaVersion=1.8&language=java&bootVersion=1.3.3.RELEASE&dependencies=cloud-eureka&dependencies=actuator&dependencies=web&dependencies=cloud-config-client

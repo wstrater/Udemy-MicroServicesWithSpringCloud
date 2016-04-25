@@ -1,0 +1,46 @@
+---
+server:
+  port: ${PORT:${SERVER_PORT:0}} 
+
+sentence: false
+
+logging:
+  level:
+    com:
+      netflix:
+        discovery: DEBUG
+
+
+# Specify defaults that should be overridden if using Spring Config
+---
+spring:
+  profiles: sentence
+server:
+  port: 8020  
+words: NotApplicable
+sentence: true
+    
+---
+spring:
+  profiles: adjective
+words: Reasonable,Leaky,Suspicious,Ordinary,Unlikely
+
+---
+spring:
+  profiles: article
+words: A,The
+
+---
+spring:
+  profiles: noun
+words: Boat,Book,Vote,Seat,Backpack,Partition,Groundhog
+
+---
+spring:
+  profiles: subject
+words: I,You,He,She,It
+  
+---
+spring:
+  profiles: verb
+words: Ran,Knew,Had,Saw,Bought

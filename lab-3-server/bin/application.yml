@@ -1,0 +1,15 @@
+---
+server:
+  port: 8001
+
+# http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html
+spring:
+  cloud:
+    config:
+      server:
+        git:
+#          uri: https://github.com/kennyk65/Microservices-With-Spring-Student-Files
+#          searchPaths: ConfigData
+          uri: https://github.com/wstrater/Udemy-MicroServicesWithSpringCloud
+          searchPaths: SpringConfigData
+          

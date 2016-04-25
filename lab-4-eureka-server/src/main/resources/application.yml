@@ -1,0 +1,99 @@
+---
+server:
+  port: 8010
+
+# http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html
+# http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+#          uri: https://github.com/kennyk65/Microservices-With-Spring-Student-Files
+#          searchPaths: ConfigData
+          uri: https://github.com/wstrater/Udemy-MicroServicesWithSpringCloud
+          searchPaths: SpringConfigData
+
+
+# Configure a single Eureka and Config server
+---
+spring:
+  application:
+    name: eureka-server-standalone  
+  profiles: default
+server:
+  port: 8010
+eureka:
+  instance:
+    hostname: localhost       
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
+# Configure a clustered Eureka and Config cluster
+# /etc/hosts or C:\WINDOWS\system32\drivers\etc\hosts
+#
+# Servers need to be run with primary, secondary or tertiary profile.
+# Client needs to be run with clustered profile.
+#
+# Can't run a cluster of Eureka servers with same host name.
+#
+# START section for Microservices with Spring Course
+# 127.0.0.1       eureka-primary
+# 127.0.0.1       eureka-secondary
+# 127.0.0.1       eureka-tertiary
+# END section for Microservices with Spring Course
+---
+spring:
+  application:
+    name: eureka-server-clustered   
+  profiles: primary
+server:
+  port: 8011  
+eureka:
+  instance:
+    hostname: eureka-primary
+  client:
+    registerWithEureka: true
+    fetchRegistry: true        
+    serviceUrl:
+      defaultZone: http://eureka-secondary:8012/eureka/,http://eureka-tertiary:8013/eureka/
+
+---
+spring:
+  application:
+    name: eureka-server-clustered      
+  profiles: secondary
+server:
+  port: 8012
+eureka:
+  instance:
+    hostname: eureka-secondary
+  client:
+    registerWithEureka: true
+    fetchRegistry: true        
+    serviceUrl:
+      defaultZone: http://eureka-tertiary:8013/eureka/,http://eureka-primary:8011/eureka/
+
+---
+spring:
+  application:
+    name: eureka-server-clustered      
+  profiles: tertiary
+server:
+  port: 8013
+eureka:
+  instance:
+    hostname: eureka-tertiary
+  client:
+    registerWithEureka: true
+    fetchRegistry: true    
+    serviceUrl:
+      defaultZone: http://eureka-primary:8011/eureka/,http://eureka-secondary:8012/eureka/      
+      
