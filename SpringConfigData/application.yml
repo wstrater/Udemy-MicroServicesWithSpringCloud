@@ -7,7 +7,7 @@ eureka:
 
 ---
 spring:
-  profiles: clusteredEureka
+  profiles: clustered
 eureka:
   client:
     serviceUrl:
@@ -16,17 +16,17 @@ eureka:
 ---
 spring:
   profiles: adjective
-words: reasonable,leaky,suspicious,ordinary,unlikely
+words: reasonablE,leakY,suspiciouS,ordinarY,unlikelY
 
 ---
 spring:
   profiles: article
-words: a,the
+words: A,thE
 
 ---
 spring:
   profiles: noun
-words: boat,book,vote,seat,backpack,partition,groundhog
+words: boaT,booK,votE,seaT,backpacK,partitioN,groundhoG
 
 ---
 spring:
@@ -36,4 +36,4 @@ words: I,You,He,She,It
 ---
 spring:
   profiles: verb
-words: ran,knew,had,saw,bought
+words: raN,kneW,haD,saW,boughT
