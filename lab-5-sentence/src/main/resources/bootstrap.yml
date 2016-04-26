@@ -1,0 +1,13 @@
+---
+server:
+  port: ${PORT:${SERVER_PORT:0}} 
+
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8001
+
+# Set the instanceId used to register to a unique number so multiple can run on the same host.
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}

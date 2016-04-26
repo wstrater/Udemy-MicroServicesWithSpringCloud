@@ -1,10 +1,12 @@
 ---
-# Items that apply to ALL profiles:
+# Items that apply to all profiles:
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8010/eureka/
 
+
+# Clustered Eureka server
 ---
 spring:
   profiles: clustered
@@ -13,20 +15,22 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8011/eureka/,http://localhost:8012/eureka/,http://localhost:8013/eureka/
 
+
+# Word servers
 ---
 spring:
   profiles: adjective
-words: reasonablE,leakY,suspiciouS,ordinarY,unlikelY
+words: reasonable,leaky,suspicious,ordinary,unlikely
 
 ---
 spring:
   profiles: article
-words: A,thE
+words: a,the
 
 ---
 spring:
   profiles: noun
-words: boaT,booK,votE,seaT,backpacK,partitioN,groundhoG
+words: boat,book,vote,seat,backpack,partition,groundhog
 
 ---
 spring:
@@ -36,4 +40,4 @@ words: I,You,He,She,It
 ---
 spring:
   profiles: verb
-words: raN,kneW,haD,saW,boughT
+words: ran,knew,had,saw,bought

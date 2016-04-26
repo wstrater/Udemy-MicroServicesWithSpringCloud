@@ -1,0 +1,14 @@
+---
+server:
+  port: 8001
+
+# http://cloud.spring.io/spring-cloud-config/spring-cloud-config.html
+spring:
+  application:
+    name: lab-5-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/wstrater/Udemy-MicroServicesWithSpringCloud
+          searchPaths: SpringConfigData

@@ -1,0 +1,45 @@
+---
+server:
+  port: ${PORT:${SERVER_PORT:0}} 
+
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8001
+
+# Set the instanceId used to register to a unique number so multiple can run on the same host.
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+
+# Set name based on profile
+---
+spring:
+  profiles: adjective
+  application:
+    name: lab-5-adjective
+
+---
+spring:
+  profiles: article
+  application:
+    name: lab-5-article
+
+---
+spring:
+  profiles: noun
+  application:
+    name: lab-5-noun
+
+---
+spring:
+  profiles: subject
+  application:
+    name: lab-5-subject
+    
+---
+spring:
+  profiles: verb
+  application:
+    name: lab-5-verb
