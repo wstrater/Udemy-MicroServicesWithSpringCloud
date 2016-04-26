@@ -78,14 +78,14 @@ public class WordController {
 
   @PostConstruct
   private void postConstruct() {
-    logger.info(String.format("Lab 5 Common Client - appName:     %s", appName));
-    logger.info(String.format("Lab 5 Common Client - configURI:   %s", configURI));
-    logger.info(String.format("Lab 5 Common Client - defaultZone: %s", defaultZone));
-    logger.info(String.format("Lab 5 Common Client - eurekaId:    %s", eurekaId));
-    logger.info(String.format("Lab 5 Common Client - profile:     %s", profile));
-    logger.info(String.format("Lab 5 Common Client - port:        %d", port));
-    logger.info(String.format("Lab 5 Common Client - springId:    %s", springId));
-    logger.info(String.format("Lab 5 Common Client - words:       %s", words));
+    logger.info(String.format("Lab 5 Word Server - appName:     %s", appName));
+    logger.info(String.format("Lab 5 Word Server - configURI:   %s", configURI));
+    logger.info(String.format("Lab 5 Word Server - defaultZone: %s", defaultZone));
+    logger.info(String.format("Lab 5 Word Server - eurekaId:    %s", eurekaId));
+    logger.info(String.format("Lab 5 Word Server - profile:     %s", profile));
+    logger.info(String.format("Lab 5 Word Server - port:        %d", port));
+    logger.info(String.format("Lab 5 Word Server - springId:    %s", springId));
+    logger.info(String.format("Lab 5 Word Server - words:       %s", words));
   }
 
 }
