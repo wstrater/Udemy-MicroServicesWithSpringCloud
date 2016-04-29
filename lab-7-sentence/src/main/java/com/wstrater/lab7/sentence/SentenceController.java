@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import rx.Observable;
-import rx.schedulers.Schedulers;
 
 import com.wstrater.lab7.sentence.service.SentenceService;
 
@@ -50,4 +49,5 @@ public class SentenceController {
 
     return buf.toString();
   }
+
 }
