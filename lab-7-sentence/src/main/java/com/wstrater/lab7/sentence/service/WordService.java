@@ -8,10 +8,10 @@ public interface WordService {
 
   public Word getArticle();
 
-  public String getNoun();
+  public Word getNoun();
 
-  public String getSubject();
+  public Word getSubject();
 
-  public String getVerb();
+  public Word getVerb();
 
 }

@@ -33,7 +33,7 @@ public class WordServiceImpl implements WordService {
   @Autowired
   private VerbClient      verb;
 
-  @HystrixCommand(fallbackMethod = "getAdjectiveFallack")
+  @HystrixCommand(fallbackMethod = "getAdjectiveFallack", threadPoolKey="Adjective")
   @Override
   public Word getAdjective() {
     Word ret = adjective.getWord();
@@ -49,6 +49,7 @@ public class WordServiceImpl implements WordService {
     return new Word("missing");
   }
 
+  @HystrixCommand(threadPoolKey="Article")
   @Override
   public Word getArticle() {
     Word ret = article.getWord();
@@ -58,45 +59,47 @@ public class WordServiceImpl implements WordService {
     return ret;
   }
 
-  @HystrixCommand(fallbackMethod = "getNounFallback")
+  @HystrixCommand(fallbackMethod = "getNounFallback", threadPoolKey="Noun")
   @Override
-  public String getNoun() {
-    Word word = noun.getWord();
+  public Word getNoun() {
+    Word ret = noun.getWord();
 
-    logger.info(String.format("getNoun: %s", word));
+    logger.info(String.format("getNoun: %s", ret));
 
-    return word == null ? "Error" : word.getWord();
+    return ret;
   }
 
-  public String getNounFallback() {
+  @SuppressWarnings("unused")
+  private Word getNounFallback() {
     logger.error("Falling Back: getNoun");
 
-    return "something";
+    return new Word("something");
   }
 
-  @HystrixCommand(fallbackMethod = "getSubjectFallack")
+  @HystrixCommand(fallbackMethod = "getSubjectFallack", threadPoolKey="Subject")
   @Override
-  public String getSubject() {
-    Word word = subject.getWord();
+  public Word getSubject() {
+    Word ret = subject.getWord();
 
-    logger.info(String.format("getSubject: %s", word));
+    logger.info(String.format("getSubject: %s", ret));
 
-    return word == null ? "Error" : word.getWord();
+    return ret;
   }
 
-  protected String getSubjectFallack() {
+  protected Word getSubjectFallack() {
     logger.error("Falling Back: getSubject");
 
-    return "Someone";
+    return new Word("Someone");
   }
 
+  @HystrixCommand(threadPoolKey="Verb")
   @Override
-  public String getVerb() {
-    Word word = verb.getWord();
+  public Word getVerb() {
+    Word ret = verb.getWord();
 
-    logger.info(String.format("getVerb: %s", word));
+    logger.info(String.format("getVerb: %s", ret));
 
-    return word == null ? "Error" : word.getWord();
+    return ret;
   }
 
 }
